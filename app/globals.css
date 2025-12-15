@@ -130,4 +130,8 @@
   .wrapper{
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .card-hover{
+    @apply hover:shadow-md hover:scale-105 transition-all duration-300 ease-in-out;
+  }
 }

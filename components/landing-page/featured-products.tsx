@@ -4,27 +4,29 @@ import { ArrowRightIcon, StarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ProductCard from "@/components/common/products/product-card";
+import { getFeaturedProducts } from "@/lib/products/product.select";
 
-const FeaturedProducts = () => {
-  const FeaturedProducts = [
-    {
-      id: 1,
-      name: "Parity Kit",
-      description: "A tool for creating parity products",
-      tags: ["Saas", "Pricing", "Global"],
-      votes: 615,
-      isFeatured: true,
-    },
-    {
-      id: 2,
-      name: "Modern Full Stack Next.js Course",
-      description:
-        "Learn to build production ready full stack apps with Next.js",
-      tags: ["Next.js", "Full-Stack", "Course"],
-      votes: 124,
-      isFeatured: false,
-    },
-  ];
+const FeaturedProducts = async () => {
+  const featuredProducts = await getFeaturedProducts();
+  // const FeaturedProducts = [
+  //   {
+  //     id: 1,
+  //     name: "Parity Kit",
+  //     description: "A tool for creating parity products",
+  //     tags: ["Saas", "Pricing", "Global"],
+  //     votes: 615,
+  //     isFeatured: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Modern Full Stack Next.js Course",
+  //     description:
+  //       "Learn to build production ready full stack apps with Next.js",
+  //     tags: ["Next.js", "Full-Stack", "Course"],
+  //     votes: 124,
+  //     isFeatured: false,
+  //   },
+  // ];
 
   return (
     <section className="py-20 bg-muted/20 ">
@@ -42,7 +44,7 @@ const FeaturedProducts = () => {
           </Button>
         </div>
         <div className="grid-wrapper">
-          {FeaturedProducts.map((product) => (
+          {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

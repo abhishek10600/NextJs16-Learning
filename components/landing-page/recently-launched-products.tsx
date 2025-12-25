@@ -1,11 +1,12 @@
 import React from "react";
-import SectionHeader from "../common/section-header";
+import SectionHeader from "@/components/common/section-header";
 import { CalendarIcon, RocketIcon } from "lucide-react";
-import ProductCard from "../common/products/product-card";
-import EmptyState from "../common/empty-state";
+import ProductCard from "@/components/common/products/product-card";
+import EmptyState from "@/components/common/empty-state";
+import { getRecentlyLaunchedProducts } from "@/lib/products/product.select";
 
-const RecentlyLaunchedProducts = () => {
-  const recentlyLaunchedProducts = [];
+const RecentlyLaunchedProducts = async () => {
+  const recentlyLaunchedProducts = await getRecentlyLaunchedProducts();
   return (
     <div className="py-20">
       <div className="wrapper space-y-12">
